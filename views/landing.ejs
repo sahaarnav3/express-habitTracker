@@ -1,1 +1,17 @@
-<h2>Home body..</h2>
+<div class="home-form">
+    <form action="/login-user" method="POST" class="home-form-login">
+        <h1>User Login</h1>
+        <input class="home-input" type="email" name="email" placeholder="Please Type Your Email..." required>
+        <input class="home-input" type="password" name="password" placeholder="Please Type Your Password..." required>
+        <input class="home-input-button" type="submit" value="Sign In">
+    </form>
+
+    <form action="/create-user" method="POST" class="home-form-create">
+        <h1>Create User</h1>
+        <input class="home-input" type="text" name="name" placeholder="Please Type Your Name..." required>
+        <input class="home-input" type="email" name="email" placeholder="Please Type Your Email..." required>
+        <input class="home-input" type="password" name="password" placeholder="Please Type Your Password..." required>
+        <input class="home-input" type="password" name="password" placeholder="Please Confirm Your Password..." required>
+        <input class="home-input-button" type="submit" value="Create User">
+    </form>
+</div>
