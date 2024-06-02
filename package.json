@@ -9,6 +9,20 @@
   "author": "Arnav Saha",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahaarnav3/express-habitTracker.git"
   }
 }
