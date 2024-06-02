@@ -14,7 +14,11 @@ app.use(cookieParser());
 app.use(express.static('./assets'));
 app.use(expressLayouts);
 // app.use(session({
-
+//     name: 'habitTracker',
+//     secret: 'secret', 
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false } 
 // }))
 
 

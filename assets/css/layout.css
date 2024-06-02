@@ -25,11 +25,22 @@ body {
 }
 
 /* below styling for landing page  */
+.title {
+    width: 100%;
+    padding: 8px;
+    background-color: #000000c4;
+}
+.title h2 {
+    text-align: center;
+    color: rgb(255, 132, 0);
+    font-size: 30px;
+}
+
 .home-form {
     width: 80%;
     height: 70%;
-    background-color: #0000009a;
-    margin: 7% auto;
+    background-color: #000000ab;
+    margin: 5% auto;
     padding: 20px 2px;
     display: flex;
     gap: 10px;
@@ -67,8 +78,8 @@ h1 {
 
 .home-input-button {
     padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 700;
     border-radius: 10px;
     margin-top: 5px;
     background-color: rgba(86, 86, 86, 0.625);
@@ -83,3 +94,6 @@ h1 {
     display: flex;
     flex-direction: column;
 }
+
+
+/* NAVBAR styling (This will only be available after login) */
