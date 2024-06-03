@@ -13,13 +13,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('./assets'));
 app.use(expressLayouts);
-// app.use(session({
-//     name: 'habitTracker',
-//     secret: 'secret', 
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: { secure: false } 
-// }))
+app.use(session({
+    name: 'habitTracker',
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: (1000 * 60 * 60 * 48) //48 hours
+    }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 
 
 //extract css and javascript files from the sub-pages into layout.
