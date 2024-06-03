@@ -9,7 +9,10 @@ const landingPageController = require('../controllers/landing_page_controller');
 console.log('Router Loaded');
 
 router.get('/', landingPageController.landing);
-router.post('/login-user', landingPageController.loginUser);
+router.post('/login-user', passport.authenticate('local', {
+    failureRedirect: '/',
+    successRedirect: '/'
+}));
 router.post('/create-user', landingPageController.createUser);
 
 

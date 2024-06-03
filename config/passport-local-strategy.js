@@ -17,6 +17,7 @@ passport.use(new localStrategy({
             }
             return done(null, userData);
         } catch(err) {
+            console.log("This error occured in passport while logging-in -- ", err);
             return done(null, false, {message: "Some unknown error occured. Please try again"});
         }
     }
@@ -25,7 +26,7 @@ passport.use(new localStrategy({
 //Below Functions are basially used to convert the user object received into a kind of data which can be easily stored in our 
 //session storage. This data is unique identifier for the user.
 passport.serializeUser((user, done) => {
-    console.log(`Serialize User Data -- user= ${user}`);
+    // console.log(`Serialize User Data -- user= ${user}`);
     done(null, user.id);
 });
 
