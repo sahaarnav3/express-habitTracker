@@ -1,9 +1,10 @@
 const User = require('../models/users')
+const Habit = require('../models/habits');
 //below controllers will be used to render the landing page which will include the account login or creation option--
 
 module.exports.landing = (req, res) => {
     if (req.isAuthenticated())
-        return res.render('homepage')
+        return res.render('homepage', {username: req.user.name.toUpperCase()});
     res.render('landing');
 }
 
