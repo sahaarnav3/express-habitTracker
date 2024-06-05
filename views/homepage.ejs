@@ -1,1 +1,117 @@
-<h1>THIS IS THE MAIN HOME PAGE AFTER LOGIN..</h1>
+<div class="homepage-nav">
+    <form action="/log-out" method="POST" class="homepage-navbar">
+        <h2>🙋‍♂️ @username</h2>
+        <input class="logout-btn" type="submit" value="Log Out 👋">
+    </form>
+</div>
+
+<div class="homepage-input">
+    <form action="/create-habit" method="POST" class="homepage-input-form">
+        <input class="homepage-input-text" type="text" name="habit-name"
+            placeholder="Enter Something About Your Habit.." required>
+        <input class="homepage-input-submit" type="submit" value="Add Habit">
+    </form>
+</div>
+<div class="habit-list-and-details">
+    <div class="habit-list">
+        <h2>Habit List</h2>
+        <div class="habit-list-content">
+            <form action="/delete-task" method="POST" class="habit-form">
+                <div class="habit-title-and-days">
+                    <h3>Some Habit Name One</h3>
+                    <h5>10 out of 20 days</h5>
+                </div>
+                <input type="hidden" name="habit-id" value="fetched-value1">
+                <input type="submit" class="delete-habit" value="Delete Habit">
+            </form>
+            <form action="/delete-task" method="POST" class="habit-form">
+                <div class="habit-title-and-days">
+                    <h3>Some Habit Name Two</h3>
+                    <h5>20 out of 30 days</h5>
+                </div>
+                <input type="hidden" name="habit-id" value="fetched-value2">
+                <input type="submit" class="delete-habit" value="Delete Habit">
+            </form>
+        </div>
+    </div>
+    <div class="habit-details">
+        <div class="habit-days-list">
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+            <div class="habit-day" id="habitId-and-date">
+                <h4>🗓️ Wednesday May 05, 2024</h4>
+                <div class="habit-status">
+                    <input type="button" value="Done">
+                    <input type="button" value="Not Done">
+                    <input type="button" value="No Action Taken">
+                </div>
+            </div>
+        </div>
+        <div class="habit-description">
+            <h2>Habit Notes</h2>
+            <div class="habit-notes">
+                <input type="text" class="habit-note-input" placeholder="Type a note..">
+                <input type="submit" class="habit-note-submit" value="Submit">
+            </div>
+            <div class="habit-note-display">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt asperiores cupiditate eveniet
+                    odit earum aspernatur beatae laboriosam aliquid ipsum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt asperiores cupiditate eveniet
+                    odit earum aspernatur beatae laboriosam aliquid ipsum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt asperiores cupiditate eveniet
+                    odit earum aspernatur beatae laboriosam aliquid ipsum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt asperiores cupiditate eveniet
+                    odit earum aspernatur beatae laboriosam aliquid ipsum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt asperiores cupiditate eveniet
+                    odit earum aspernatur beatae laboriosam aliquid ipsum!</p>
+                
+            </div>
+        </div>
+    </div>
+</div>

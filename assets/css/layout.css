@@ -7,6 +7,18 @@
     color: white;
 }
 
+::-webkit-scrollbar {
+    /* display: none; */
+    width: 3px;
+    background-color: rgba(245, 222, 179, 0.274);
+}
+
+::-webkit-scrollbar-thumb {
+    /* display: none; */
+    background-color: wheat;
+    border-radius: 10px;
+}
+
 /* Will try to keep the css of all the views in a single file here itself.. */
 body {
     background-image: url('../images/background3.jpg');
@@ -96,4 +108,224 @@ h1 {
 }
 
 
-/* NAVBAR styling (This will only be available after login) */
+/* BELOW IS THE STYLING FOR THE HOMEPAGE */
+.homepage-nav {
+    width: 100%;
+    background-color: #000000b1;
+    padding: 8px 10px;
+    border-bottom: 2px dotted rgb(108, 108, 108);
+}
+.homepage-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.homepage-navbar h2{
+    color: rgb(255, 132, 0);
+    font-size: 30px;
+}
+.homepage-navbar input {
+    background-color: rgba(86, 86, 86, 0.625);
+    color: rgb(255, 132, 0);
+    font-size: 25px;
+    font-weight: 800;
+    padding: 3px 30px;
+    border-radius: 8px;
+}
+.homepage-navbar input:hover {
+    scale: 1.04;
+    cursor: pointer;
+}
+
+.homepage-input {
+    background-color: #000000c6;
+    width: 70%;
+    margin: 10px auto;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: 2px dotted rgb(117, 117, 117);
+}
+.homepage-input-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-bottom: 10px; */
+    /* border-bottom: 2px dotted rgb(117, 117, 117); */
+}
+.homepage-input-text {
+    width: 82%;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(252, 182, 108);
+    font-weight: 600;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(86, 86, 86, 0.625);
+}
+.homepage-input-text::placeholder {
+    color: rgb(252, 182, 108);
+}
+.homepage-input-submit {
+    padding: 10px 30px;
+    background-color: rgba(86, 86, 86, 0.625);
+    color: rgb(255, 132, 0);
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.homepage-input-submit:hover {
+    scale: 1.03;
+}
+
+
+.habit-list-and-details {
+    width: 97%;
+    height: 74%;
+    background-color: #000000b2;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px dotted rgb(117, 117, 117);
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.habit-list {
+    width: 35%;
+    /* background-color: rgba(128, 128, 128, 0.448); */
+    height: 100%;
+    /* border-right: 2px dotted rgb(192, 192, 192); */
+}
+.habit-list h2 {
+    text-align: center;
+    color: rgb(255, 132, 0);
+    margin-bottom: 10px;
+}
+.habit-list-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.habit-form {
+    /* background-color: rgba(94, 94, 94, 0.538); */
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-bottom: 2px solid rgba(123, 123, 123, 0.625);
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.habit-title-and-days h3 {
+    color: rgb(252, 182, 108);
+}
+.delete-habit {
+    background-color: rgba(86, 86, 86, 0.625);
+    color: rgb(255, 132, 0);
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.delete-habit:hover {
+    scale: 1.02;
+}
+
+
+.habit-details {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    /* background-color: rgba(113, 113, 113, 0.497); */
+}
+.habit-days-list {
+    height: 100%;
+    /* background-color: rgba(113, 113, 113, 0.497); */
+    width: 45%;
+}
+.habit-day {
+    /* border-bottom: 1px solid white; */
+    padding: 9px 0px;
+    margin-right: 5px;
+}
+.habit-day h4 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: rgb(252, 182, 108);
+}
+.habit-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.habit-status input {
+    background-color: rgba(86, 86, 86, 0.625);
+    color: rgb(255, 132, 0);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 3px 15px;
+    border-radius: 5px;
+}
+.habit-status input:hover {
+    scale: 1.05;
+}
+
+
+.habit-description {
+    height: 100%;
+    /* background-color: rgba(180, 180, 180, 0.497); */
+    width: 55%;
+    padding: 0px 20px;
+    border: 2px dotted rgba(173, 173, 173, 0.625);
+    border-radius: 10px;
+}
+.habit-description h2 {
+    text-align: center;
+    color: rgb(255, 132, 0);
+    margin-bottom: 10px;
+}
+.habit-notes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.habit-note-input {
+    padding: 5px;
+    font-size: 15px;
+    background-color: rgba(86, 86, 86, 0.625);
+    width: 70%;
+    outline: none;
+    color: rgb(252, 182, 108);
+    font-weight: 600;
+}
+.habit-note-input::placeholder {
+    color: rgb(252, 182, 108);
+}
+.habit-note-submit {
+    background-color: rgba(86, 86, 86, 0.625);
+    color: rgb(255, 132, 0);
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.habit-note-submit:hover {
+    scale: 1.05;
+}
+.habit-note-display {
+    overflow: auto;
+    height: 81%;
+    margin-top: 10px;
+}
+.habit-note-display p {
+    padding: 5px 0;
+    font-weight: 300;
+}
