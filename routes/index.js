@@ -19,6 +19,7 @@ router.post('/create-user', landingPageController.createUser);
 //Below all the router are for the functioning of homepage actions.
 router.post('/log-out', homepageController.destroySession);
 router.post('/create-habit', homepageController.createHabit);
+router.post('/delete-habit', homepageController.deleteHabit);
 
 
 module.exports = router;

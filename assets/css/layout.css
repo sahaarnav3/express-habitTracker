@@ -26,6 +26,9 @@ body {
     background-repeat: no-repeat;
     background-position: 0 10%;
 }
+.hidden {
+    display: none;
+}
 
 .background-wrapper {
     position: fixed;

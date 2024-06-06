@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const Habit = require('../models/habits');
+const habitPerDay = require('../models/habit_per_day');
 
 
 module.exports.destroySession = (req, res) => {
@@ -24,9 +25,40 @@ module.exports.createHabit = async (req, res) => {
             startDate: new Date()
         }));
         // console.log(newHabit);
+        //after creating the habit we will add the status of 7 days (7 days before the date of creation);
+        //we have the task id in newHabit.
+        const habitDates = []; // Used to store 7 dates from current date.
+        let currentDate = new Date();
+        //Below function is used to create 7 days of habit_per_day and insert it at the end.
+        for (let i = 0; i < 7; i++) {
+            const newDate = new Date(currentDate.getTime() - (i * 1000 * 60 * 60 * 24));
+            const newHabitDate = new habitPerDay({
+                habit: newHabit._id,
+                date: newDate,
+                status: 'No Action'
+            });
+            habitDates.push(newHabitDate);
+        }
+        await habitPerDay.insertMany(habitDates);
+        // console.log(habitDatesReturnedData);
+
     } catch (err) {
         console.log('This error occurred in creating the habit -- ', err);
         return res.redirect('/');
+    }
+    res.redirect('/');
+}
+
+//Below controller would be used to delete habit from mongoDB
+module.exports.deleteHabit = async (req, res) => {
+    // console.log('Habit id: ', req.body);
+    if (!req.isAuthenticated())
+        return res.redirect('/');
+    try {
+        await Habit.deleteOne({ _id: req.body['habit-id'] });
+        await habitPerDay.deleteMany({ habit: req.body['habit-id'] });
+    } catch (err) {
+        console.log("Error While Deleting Habit : ", err);
     }
     res.redirect('/');
 }

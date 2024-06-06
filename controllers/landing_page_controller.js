@@ -2,10 +2,20 @@ const User = require('../models/users')
 const Habit = require('../models/habits');
 //below controllers will be used to render the landing page which will include the account login or creation option--
 
-module.exports.landing = (req, res) => {
-    if (req.isAuthenticated())
-        return res.render('homepage', {username: req.user.name.toUpperCase()});
-    res.render('landing');
+module.exports.landing = async (req, res) => {
+    if (!req.isAuthenticated())
+        return res.render('landing');
+
+    //Lets fetch the habit list from mongoDB..
+    let habitList = [];
+    try {
+        habitList = await Habit.find({ email: req.user.email });
+        // console.log(habitList);
+    } catch (err) {
+        console.log("Error caused while fetching habit list for logged in user -- ", err);
+    }
+
+    res.render('homepage', { username: req.user.name.toUpperCase(), habitList: habitList });
 }
 
 module.exports.loginUser = (req, res) => {
@@ -20,9 +30,9 @@ module.exports.loginUser = (req, res) => {
 module.exports.createUser = async (req, res) => {
     // res.redirect('/'); // try to flash a message to show user that account created
     // res.json(req.body);
-    if(req.body.password !== req.body['confirm-password'])
-            return res.json({ "Error": "Please enter correct password in both the fields. Try Again" });
-        let newUser = "";
+    if (req.body.password !== req.body['confirm-password'])
+        return res.json({ "Error": "Please enter correct password in both the fields. Try Again" });
+    let newUser = "";
     try {
         newUser = await User.create(new User({
             name: req.body.name,
@@ -32,7 +42,7 @@ module.exports.createUser = async (req, res) => {
         // console.log(newUser);
     } catch (err) {
         console.log("This error occured in creating the user -- ", err);
-        if(err.code == 11000)
+        if (err.code == 11000)
             return res.json({ 'Error': 'This User Already Exists. Try Again With Another Email' });
         return res.redirect('/');
     }
