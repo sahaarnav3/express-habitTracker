@@ -57,15 +57,36 @@ module.exports.fetchDates = async (req, res) => {
     let fetchedDates = {};
     try {
         const id = req.body.habitId || req.query.habitId;
-        console.log('Inside homepagecontroller id = ', id);
+        // console.log('Inside homepagecontroller id = ', id);
         fetchedDates = await habitPerDay.find({ habit: id });
-        console.log(fetchedDates);
-        console.log('Inside homepagecontroller fetchedDates = ', fetchedDates);
+        // console.log(fetchedDates);
+        // console.log('Inside homepagecontroller fetchedDates = ', fetchedDates);
     } catch (err) {
         console.log("Error while fetching all dates status from mongoDB -- ", err);
         return res.redirect('/');
     }
     return res.json(fetchedDates);
+}
+
+//Below Controller function will be used to update to status of habit for that particular date -- 
+module.exports.updateDateStatus = async(req, res) => {
+    if(!req.isAuthenticated())
+        return res.redirect('/');
+    // console.log(req.body.habitPerDayId, req.body.status);
+    let updatedData = "";
+    try {
+        updatedData = await habitPerDay.findOneAndUpdate(
+            {_id: req.body.habitPerDayId},
+            {status: req.body.status},
+            {runValidators: true, new: true});
+        // console.log(updatedData);
+        if(!updatedData)
+            return res.status(400).json({ message: "Failed to update status" });
+        return res.status(200).json(updatedData);
+    } catch(err) {
+        console.log("Error While Updating The Status of Task for a Particular Date -- ", err);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
 }
 
 //Below controller would be used to delete habit from mongoDB

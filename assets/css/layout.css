@@ -29,6 +29,9 @@ body {
 .hidden {
     display: none;
 }
+.selected {
+    border: 3px solid rgb(230, 190, 147);
+}
 
 .background-wrapper {
     position: fixed;
