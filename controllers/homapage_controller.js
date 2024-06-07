@@ -49,6 +49,25 @@ module.exports.createHabit = async (req, res) => {
     res.redirect('/');
 }
 
+//Below controller will help fetch all the day status (since creation) for habit ..
+module.exports.fetchDates = async (req, res) => {
+    if(!req.isAuthenticated()){
+        return res.redirect('/');
+    }
+    let fetchedDates = {};
+    try {
+        const id = req.body.habitId || req.query.habitId;
+        console.log('Inside homepagecontroller id = ', id);
+        fetchedDates = await habitPerDay.find({ habit: id });
+        console.log(fetchedDates);
+        console.log('Inside homepagecontroller fetchedDates = ', fetchedDates);
+    } catch (err) {
+        console.log("Error while fetching all dates status from mongoDB -- ", err);
+        return res.redirect('/');
+    }
+    return res.json(fetchedDates);
+}
+
 //Below controller would be used to delete habit from mongoDB
 module.exports.deleteHabit = async (req, res) => {
     // console.log('Habit id: ', req.body);

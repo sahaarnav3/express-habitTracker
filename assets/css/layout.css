@@ -23,7 +23,7 @@
 body {
     background-image: url('../images/background3.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: 0 10%;
 }
 .hidden {
@@ -253,6 +253,7 @@ h1 {
     height: 100%;
     /* background-color: rgba(113, 113, 113, 0.497); */
     width: 45%;
+    overflow: auto;
 }
 .habit-day {
     /* border-bottom: 1px solid white; */

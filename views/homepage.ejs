@@ -17,12 +17,11 @@
         <h2>Habit List</h2>
         <div class="habit-list-content">
             <% for(habit of habitList) { %>
-                <form action="/delete-habit" method="POST" class="habit-form">
+                <form action="/delete-habit" method="POST" class="habit-form" id="<%= habit['_id'] %>">
                     <div class="habit-title-and-days">
-                        <h3><%= habit.title %></h3>
-                        <h5>0 out of 7 days</h5>
+                        <h3 id="<%= habit['_id'] %>"><%= habit.title %></h3>
+                        <h5 id="<%= habit['_id'] %>">0 out of 7 days</h5>
                     </div>
-                    <input type="hidden" name="habit-id" value="<%= habit['_id'] %>">
                     <input type="submit" class="delete-habit" value="Delete Habit">
                 </form>
             <% } %>
@@ -109,3 +108,4 @@
         </div>
     </div>
 </div>
+<script src="/javascript/script.js"></script>

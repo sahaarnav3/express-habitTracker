@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser'); // this is used to parse the json data received from script.js of client side. or we can say front end side.
 require('dotenv').config();
 const expressLayouts = require('express-ejs-layouts');
 
@@ -11,6 +12,7 @@ const passportLocal = require('./config/passport-local-strategy');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(express.static('./assets'));
 app.use(expressLayouts);
 app.use(session({

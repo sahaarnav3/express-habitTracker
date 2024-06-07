@@ -20,6 +20,7 @@ router.post('/create-user', landingPageController.createUser);
 router.post('/log-out', homepageController.destroySession);
 router.post('/create-habit', homepageController.createHabit);
 router.post('/delete-habit', homepageController.deleteHabit);
+router.post('/fetch-dates', homepageController.fetchDates);
 
 
 module.exports = router;
