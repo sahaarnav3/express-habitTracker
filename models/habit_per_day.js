@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Habits = require('../models/habits');
+const Habits = require('./habits');
 
 const habitPerDaySchema = new mongoose.Schema({
     habit: {

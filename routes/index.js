@@ -22,5 +22,7 @@ router.post('/create-habit', homepageController.createHabit);
 router.post('/delete-habit', homepageController.deleteHabit);
 router.post('/fetch-dates', homepageController.fetchDates);
 router.post('/update-date-status', homepageController.updateDateStatus);
+router.post('/create-note', homepageController.createNote);
+router.post('/fetch-notes', homepageController.fetchNotes);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const User = require('../models/users');
 const Habit = require('../models/habits');
 const habitPerDay = require('../models/habit_per_day');
+const HabitNote = require('../models/habit_notes');
 
 
 module.exports.destroySession = (req, res) => {
@@ -97,8 +98,40 @@ module.exports.deleteHabit = async (req, res) => {
     try {
         await Habit.deleteOne({ _id: req.body['habit-id'] });
         await habitPerDay.deleteMany({ habit: req.body['habit-id'] });
+        await HabitNote.deleteMany({ habitId:  req.body['habit-id']});
     } catch (err) {
         console.log("Error While Deleting Habit : ", err);
     }
     res.redirect('/');
+}
+
+//Below controller will be used to save the note fetched from client side to mongoDB
+module.exports.createNote = async (req, res) => {
+    if (!req.isAuthenticated())
+        return req.redirect('/');
+    let noteData = "";
+    try {
+        noteData = await HabitNote.create(new HabitNote({
+            habitId: req.body.habitId,
+            note: req.body.note
+        }));
+        return res.status(200).json(noteData);
+    } catch (err) {
+        console.log("Error created while storing note in the mongoDB -- ", err);
+        return res.status(500).json({ error: "Error Occured while storing notes to mongoDB" });
+    }
+}
+
+//Below controller will be used to fetch all notes (related to a particular habit) from mongoDB
+module.exports.fetchNotes = async (req, res) => {
+    if (!req.isAuthenticated())
+        return req.redirect('/');
+    let noteData = "";
+    try {
+        noteData = await HabitNote.find({ habitId: req.body.habitId });
+        return res.status(200).json(noteData);
+    } catch (err) {
+        console.log("Error created while fetching note from mongoDB -- ", err);
+        return res.status(500).json({ error: "Error Occured while fetching notes from mongoDB" });
+    }
 }
