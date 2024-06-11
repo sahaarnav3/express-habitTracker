@@ -20,7 +20,7 @@
                 <form action="/delete-habit" method="POST" class="habit-form" id="<%= habit['_id'] %>">
                     <div class="habit-title-and-days">
                         <h3 id="<%= habit['_id'] %>"><%= habit.title %></h3>
-                        <h5 id="<%= habit['_id'] %>">0 out of 7 days</h5>
+                        <h5 id="<%= habit['_id'] %>"><%= habitCount[habit['_id']].doneDays %> out of <%= habitCount[habit['_id']].totalDays %> days</h5>
                     </div>
                     <input type="hidden" name="habit-id" value="<%= habit['_id'] %>">
                     <input type="submit" class="delete-habit" value="Delete Habit">
